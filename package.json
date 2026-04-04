@@ -1,15 +1,14 @@
 {
   "name": "joke-generator",
   "version": "1.0.0",
-  "description": "A web app for generating random jokes",
+  "description": "A full-stack joke generator web app",
   "main": "server/server.js",
   "scripts": {
-    "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
-    "server": "cd server && npm start",
-    "client": "cd client && npm start",
-    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client",
+    "start": "concurrently \"npm start --prefix server\" \"npm start --prefix client\"",
+    "test": "echo \"Tests not yet configured\" && exit 0"
   },
-  "keywords": ["jokes", "react", "express"],
+  "keywords": ["react", "express", "jokes", "full-stack"],
   "author": "apy65360-hash",
   "license": "MIT",
   "devDependencies": {
