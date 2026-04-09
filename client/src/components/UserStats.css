@@ -1,0 +1,137 @@
+.user-stats-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.user-stats-panel {
+  background: #f5f5f5;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+
+body.dark-mode .user-stats-panel {
+  background: #1e1e1e;
+}
+
+.stats-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-panel-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+body.dark-mode .stats-panel-header h2 {
+  color: #e0e0e0;
+}
+
+.stats-close-btn {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+body.dark-mode .stats-close-btn {
+  background: #444;
+  color: #e0e0e0;
+}
+
+.stats-close-btn:hover {
+  background: #ccc;
+}
+
+body.dark-mode .stats-close-btn:hover {
+  background: #555;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+body.dark-mode .stat-card {
+  background: #2a2a2a;
+}
+
+.stat-icon {
+  font-size: 1.4rem;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #667eea;
+  line-height: 1;
+}
+
+.stat-value-sm {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-streak-row {
+  width: 100%;
+}
+
+@media (max-width: 520px) {
+  .user-stats-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .user-stats-panel {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 85vh;
+  }
+}

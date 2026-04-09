@@ -2,6 +2,25 @@
   width: 100%;
 }
 
+.joke-stats-bar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #667eea;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+body.dark-mode .joke-stats-bar {
+  background: #2a2a2a;
+  color: #82a1f3;
+}
+
 .controls {
   display: flex;
   gap: 10px;

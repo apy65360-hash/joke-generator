@@ -1,0 +1,67 @@
+.streak-counter {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+}
+
+.streak-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.streak-icon {
+  font-size: 1.2rem;
+}
+
+.streak-value {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.streak-days {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+.streak-flames {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.flame {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.flame.active {
+  transform: scale(1.1);
+}
+
+.flame.inactive {
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+.streak-best {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: inline-block;
+}
