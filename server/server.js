@@ -172,6 +172,7 @@ app.post('/api/users/stats/increment', (req, res) => {
 
   if (field === 'totalJokesViewed' && category && typeof category === 'string') {
     const safeCategory = category.slice(0, 64);
+    if (!stats.categoryPreferences) stats.categoryPreferences = {};
     stats.categoryPreferences[safeCategory] = (stats.categoryPreferences[safeCategory] || 0) + 1;
   }
 

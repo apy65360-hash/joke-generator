@@ -9,7 +9,7 @@ function getOrCreateUserId() {
   let userId = localStorage.getItem('jokeUserId');
   if (!userId) {
     // Use crypto.randomUUID() if available, otherwise fall back to crypto.getRandomValues
-    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    if (typeof crypto !== 'undefined' && crypto?.randomUUID) {
       userId = 'user_' + crypto.randomUUID().replace(/-/g, '');
     } else {
       const arr = new Uint8Array(16);
