@@ -1,0 +1,113 @@
+.achievement-badges {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .achievement-badges {
+  background: #2a2a2a;
+}
+
+.badges-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.badges-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+body.dark-mode .badges-title {
+  color: #e0e0e0;
+}
+
+.badges-count {
+  font-size: 0.85rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.badges-progress-bar {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+body.dark-mode .badges-progress-bar {
+  background: #444;
+}
+
+.badges-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.badge-item {
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge-item.earned {
+  background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);
+  border: 2px solid #667eea;
+}
+
+.badge-item.earned:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+.badge-item.locked {
+  background: #f5f5f5;
+  border: 2px dashed #ccc;
+  opacity: 0.6;
+}
+
+body.dark-mode .badge-item.locked {
+  background: #1e1e1e;
+  border-color: #555;
+}
+
+.badge-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+body.dark-mode .badge-label {
+  color: #e0e0e0;
+}
+
+.badge-desc {
+  display: block;
+  font-size: 0.7rem;
+  color: #888;
+  line-height: 1.3;
+}
+
+.badge-lock {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}

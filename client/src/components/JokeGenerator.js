@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './JokeGenerator.css';
 
-function JokeGenerator() {
+function JokeGenerator({ onJokeViewed, stats }) {
   const [joke, setJoke] = useState(null);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState('Any');
@@ -23,6 +23,10 @@ function JokeGenerator() {
       const response = await fetch(`/api/jokes/random/${category}`);
       const data = await response.json();
       setJoke(data);
+      if (onJokeViewed) {
+        onJokeViewed('totalJokesViewed', category);
+        onJokeViewed('jokesViewedToday', category);
+      }
     } catch (error) {
       console.error('Error fetching joke:', error);
       setJoke({ error: 'Failed to fetch joke. Please try again.' });
@@ -34,10 +38,12 @@ function JokeGenerator() {
     if (!joke) return;
     const jokeText = joke.setup ? `${joke.setup} ${joke.delivery}` : joke.joke;
     let newFavorites = [...favorites];
-    if (newFavorites.includes(jokeText)) {
+    const isNowFavorite = !newFavorites.includes(jokeText);
+    if (!isNowFavorite) {
       newFavorites = newFavorites.filter(j => j !== jokeText);
     } else {
       newFavorites.push(jokeText);
+      if (onJokeViewed) onJokeViewed('totalFavorites');
     }
     setFavorites(newFavorites);
     localStorage.setItem('favoriteJokes', JSON.stringify(newFavorites));
@@ -81,6 +87,14 @@ function JokeGenerator() {
           ⭐ Favorites ({favorites.length})
         </button>
       </div>
+
+      {stats && (
+        <div className="joke-stats-bar">
+          <span>🎭 {stats.totalJokesViewed} viewed</span>
+          <span>❤️ {stats.totalFavorites} saved</span>
+          <span>📅 {stats.jokesViewedToday} today</span>
+        </div>
+      )}
 
       {!showFavorites && (
         <div className="joke-display">
